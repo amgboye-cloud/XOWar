@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid War</title>
+    <link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head>
+<body>
+
+    <header>
+        <div class="logo">Grid Wars</div>
+        <div class="subb">
+            <a href="#" class="link activee"onclick="activeLink(this)">Home</a>
+            <a href="#" class="link" onclick="activeLink(this)">Rules</a>
+            <a href="#" class="link" onclick="activeLink(this)">Settings</a>
+        </div>
+        <div class="subb">
+            <button class="profi"></button>
+        </div>
+    </header>
+     <main>
+
+
+    <section class="hero">
+        <div class="text">
+            <h1>Tic-Tac-Toe</h1>
+            <p>Choose your game mode</p>
+        </div>
+        <div class="modes">
+            <div class="b-box">
+                <button class="profileAva"><i class="fa-solid fa-users"></i></button>
+                <p class="Name">Two Players (Local)</p>
+                <p class="Des">Compete against a friend sitting right next to you.</p>
+                <button class="mode" id="localMode" onclick="getMode(this,'localGame','partner')">Select Mode</button>
+            </div>
+            <div class="b-box">
+                <button class="pCom"><i class="fa-solid fa-robot"></i></button>
+                <p class="Name">Play vs Computer</p>
+                <p class="Des">Test your strategy against our advanced AI engine.</p>
+                <button class="mode mCom" id="AiMode" onclick="getMode(this,'ComputerVsHuman','vsCOm')">Select Mode</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="vsCOm">
+        <div class="all" id="ComputerVsHuman">
+
+        
+        <div class="heeader">
+            <h1>Play vs Computer</h1>
+            <p>Configure your digital opponent and battle for the win.</p>
+        </div>
+        <span class="flex fl1">
+            <p class="bFlx">Difficulty Selection</p>
+            <p class="bckFlx">LEVEL</p>
+        </span>
+        <div class="flexbox" >
+            <div class="smallBox choosen" onclick="chooseLevel(this)">
+                <span class="flex">
+                <p class="emmogi"><i class="fa-regular fa-face-smile"></i></p>
+                <input type="radio" name="level" id="easy" class="level" checked>
+                </span>
+                <p class="lvl">Easy</p>
+                <p class="decs">Perfect for learning the basics and casual play</p>
+            </div>
+
+            <div class="smallBox " onclick="chooseLevel(this)">
+                <span class="flex">
+                <p class="emmogi"><i class="fa-solid fa-robot"></i></p>
+                <input type="radio" name="level" id="easy" class="level">
+                </span>
+                <p class="lvl">Medium</p>
+                <p class="decs">A balanced challege that punishes simple mistakes</p>
+            </div>
+
+            <div class="smallBox " onclick="chooseLevel(this)">
+                <span class="flex">
+                <p class="emmogi"><i class="fa-solid fa-brain"></i></p>
+                <input type="radio" name="level" id="easy" class="level">
+                </span>
+                <p class="lvl">Hard</p>
+                <p class="decs">The AI uses Minimax strategy. Nearly unbeatable</p>
+            </div>
+           
+           
+        </div>
+
+            <div class="userInfo">
+                <input type="text" placeholder="choose a nickname" id="userName">
+                <button class="submit" onclick="chooseName(this)">Submit</button>
+            </div>
+
+        <div class="whoStars">
+
+            <h1>Who Plays First</h1>
+            <div class="vdv">
+            <label for="coin" id="tcName">User (Me)</label>
+            <select name="coin" id="coin">
+                <option value="Head">Head</option>
+                <option value="Tail">Tail</option>
+            </select>
+            </div>
+
+            <p id="result"></p>
+
+            <button class="tcoin" onclick="tossCoin()">Toss coin</button>
+
+        </div>
+
+
+</div>
+
+
+
+
+
+<div id="CompVsUser">
+    <p class="final_result" ></p>
+
+    <div class="container">
+
+        <div class="dash-start">
+        <div class="dashboard">
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+            <div class="box" onclick="playGame(this)"></div>
+        </div>
+        
+        <div class="actionss">
+        <button class="startGame" id="startGamee" onclick="startGame(this)">Start Game</button>
+        <button class="startGame again" onclick="resetGame()">Play Again</button>
+        </div>
+
+        </div>
+
+        <div class="scoreStar">
+            <div class="scoreBoard">
+                <h2 class="scorebb">Scoreboard</h2>
+                <div class="player userr">
+                    <p><i class="fa-solid fa-user"></i> <span id="player-name">Name</span></p>
+                    <p class="score" id="userScore">0</p>
+                </div>
+
+                <div class="player bott">
+                    <p><i class="fa-solid fa-robot"></i> AI</p>
+                    <p class="score" id="comScore">0</p>
+                </div>
+
+            </div>
+            <button class="resetGame" onclick="resetScores()"><i class="fa-solid fa-rotate-right"></i> Reset Score</button>
+        </div>
+
+
+    </div>
+</div>
+    </section>
+
+    <section id="localGame" class="partner">
+        <h1 class="cmm">Coming Soon!!</h1>
+    </section>
+     </main>
+
+    
+
+<script src="script.js"></script>
+</body>
+</html>

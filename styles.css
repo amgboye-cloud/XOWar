@@ -1,0 +1,502 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: 65px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: #f3f1f1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 999;
+}
+body,html{
+    scroll-behavior: smooth;
+}
+.link{
+    text-decoration: none;
+    color: rgb(34, 33, 33);
+    font-family: poppins;
+}
+.subb{
+    display: flex;
+    gap: 1rem;
+}
+.logo{
+    font-family: roboto;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.activee{
+    color: #0d83eb;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
+    text-decoration-color: #0d83eb;
+}
+
+main{
+    padding-top: 65px;
+    background-color: #f2f4f6;
+}
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 0;
+}
+.modes{
+    display: flex;
+    gap: 1rem;
+}
+.b-box{
+    width: 250px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    gap: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.325);
+}
+.Name{
+    font-size: 16px;
+    font-family: poppins;
+    font-weight: 600;
+}
+.Des{
+    font-family: poppins;
+    font-size: 12px;
+    text-align: center;
+}
+.mode{
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgb(0, 123, 255);
+    border:none;
+    color: white;
+    font-family: poppins;
+    cursor: pointer;
+}
+.mCom{
+    background-color: hsla(0, 0%, 50%, 0.548);
+    color: black;
+}
+
+
+
+.profileAva,.pCom{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: hsla(205, 100%, 52%, 0.205);
+    color: rgb(0, 85, 255);
+    font-size: 20px;
+}
+.pCom{
+    background-color: rgba(255, 68, 0, 0.291);
+    color: orangered;
+}
+
+.text{
+    font-family: poppins;
+}
+
+
+
+
+.whoStars{
+    width: 400px;
+    border: none;
+    margin: auto;
+    padding: 1rem;
+    background-color: white;
+    font-family: poppins;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.whoStars h1{
+    text-align: center;
+    font-size: 20px;
+}
+.vdv{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.vdv label{
+    font-family: poppins;
+
+}
+
+.vdv select{
+    width: 100px;
+    border-radius: 5px;
+    font-family: poppins;
+    cursor: pointer;
+    outline: none;
+
+}
+
+
+
+
+.tcoin{
+    width: 120px;
+    height: 35px;
+    border-radius: 17px;
+    border: none;
+    background-color: rgb(0, 115, 255);
+    color: white;
+    font-family: poppins;
+    cursor: pointer;
+}
+.tcoin:active{
+    opacity:0.7;
+}
+#result{
+    margin: 1rem 0;
+}
+
+.emmogi{
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.068);
+}
+.lvl{
+    font-family: poppins;
+    font-weight: 600;
+    font-size: 17px;
+}
+.decs{
+    font-family: poppins;
+    font-size: 12px;
+    width: 120px;
+    margin-top: 10px;
+}
+.smallBox{
+    width: 150px;
+    height: 200px;
+    border: none;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.303);
+    border-radius: 10px;
+    color: black;  
+    cursor: pointer;
+}
+.choosen{
+    border: 2px solid rgb(3, 73, 250);
+}
+
+.choosen .emmogi , .choosen .lvl{
+    color: rgb(0, 119, 255);
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 1rem 0;
+}
+.fl1{
+    padding: 1rem;
+}
+.flex input{
+    transform: scale(1.5);
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 5rem 0;
+}
+
+.bFlx{
+    font-family: poppins;
+    font-weight: bold;
+    font-size: 20px;
+}
+.bckFlx{
+    background-color: rgba(11, 85, 212, 0.14);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    color: rgba(6, 104, 232, 0.839);
+    font-weight: 600;
+    font-family: poppins;
+
+}
+
+
+
+
+.heeader{
+    padding: 1rem;
+}
+.all{
+    width: 600px;
+    margin: auto;
+}
+.heeader h1{
+        font-family: poppins;
+        font-weight: 600;
+        margin: 1rem 0;
+}
+.heeader p{
+    font-family: poppins;
+    font-size: 12px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 0;
+}
+
+.dashboard{
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    padding: 1rem;
+    width: 320px;
+    height: 350px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ECEEF0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.251);
+    gap: 10px;
+
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-family: roboto;
+    font-weight: bold;
+    height: 100px;
+    border: none;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.248);
+    cursor:crosshair;
+
+}
+
+
+.scoreBoard{
+    width: 300px;
+    height: 350px;
+    border: none;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow:  0 0 8px rgba(0, 0, 0, 0.161);
+}
+
+.player{
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding:0  1rem ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: poppins;
+    color: black;
+    margin: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.205);
+}
+.scoreFlex{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.score{
+    font-weight: bold;
+}
+.userr{
+    border-left: 0.4rem solid #0d83eb;
+    background-color: hsla(205, 83%, 53%, 0.08);
+}
+.bott{
+
+    border-left: 0.4rem solid orangered;
+    background-color: #ECEEF0;
+}
+.win{
+    background-color: green;
+    color: white;
+    border: none;
+}
+.loss{
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.resetGame{
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid;
+    font-family: poppins;
+    font-weight: bold;
+    background-color: #0d83eb;
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto;
+}
+.scorebb{
+    font-family: roboto;
+    padding: 10px 0;
+}
+
+.submit{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0d83eb;
+    color: white;
+    cursor: pointer;
+}
+#player-name{
+    margin-left: 5px;
+}
+#userName{
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid black;
+    outline: none;
+    padding:0 10px;
+    font-family: poppins;
+}
+.userInfo{width: 300px;
+    margin: 5rem auto;
+}
+.disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.startGame{
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid;
+    display: block;
+    margin: 1rem auto;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    font-family: poppins;
+    font-weight: bold;
+}
+.again{
+    background-color: #0d83eb;
+}
+.actionss{
+    display: flex;
+}
+.final_result{
+    text-align: center;
+    font-size: 2.5em;
+    padding: 1rem;
+    font-family: roboto;
+    color: green;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.5s ease;
+}
+
+.final_result.show {
+    opacity: 1;
+    transform: scale(1.2);
+}
+#CompVsUser{
+    padding-top: 5rem;
+}
+
+.vsCOm{
+    display: none;
+}
+
+@media(max-width: 767px){
+
+    header{
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    .subb{
+        display: none;
+    }
+    .modes{
+        flex-direction: column;
+    }
+    .flexbox{
+        flex-direction: column;
+        margin: auto;
+    }
+    .all{
+        width: 300px;
+    }
+    .whoStars{
+        width: 250px;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .dashboard{
+        width: 300px;
+        grid-template-columns: repeat(3,90px);
+        height: 320px;
+        margin: auto;
+
+    }
+    .box{
+        height: 90px; 
+    }
+    .startGame{
+        width: 150px;
+    }
+}
+
+.selected{
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.partner{
+    text-align: center;
+    font-family: poppins;
+    display: none;
+}
