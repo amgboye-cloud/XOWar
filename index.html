@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grid War</title>
+    <title>TicTac Clash</title>
     <link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="shortcut icon" href="LOGO.png" type="image/x-icon">
+</head>
 <body>
 
     <header>
-        <div class="logo">Grid Wars</div>
+        <div class="logo">TicTac Clash</div>
         <div class="subb">
             <a href="#" class="link activee"onclick="activeLink(this)">Home</a>
             <a href="#" class="link" onclick="activeLink(this)">Rules</a>
@@ -19,11 +21,39 @@
         <div class="subb">
             <button class="profi"></button>
         </div>
+
+        <div class="menuBar" onclick="toshowMenu()">
+            <div class="stroke"></div>
+            <div class="stroke"></div>
+            <div class="stroke"></div>
+        </div>
+
+        <div id="menu">
+            <div class="tomove">
+            <div class="crossBar" onclick="closeMenu()">
+                <div class="bar bOne"></div>
+                <div class="bar btwo"></div>
+            </div>
+            </div>
+
+            <a href="#hero" class="mLinks">Home</a>
+            <button class="mLinks linkBtn"onclick="gotoLink(this,'ComputerVsHuman','vsCOm')">Play Against AI</button>
+            <button class="mLinks linkBtn"onclick="gotoLink(this,'localGame','partner')">Play With a Friend</button>            
+            <a href="#" class="mLinks">Rules</a>
+            <a href="#" class="mLinks">Settings</a>
+
+            <div class="userProfile">
+                <p class="usericon"><i class="fa-solid fa-user"></i></p>
+                <button class="userSign">Sign in</button>
+            </div>
+        </div>
+
+
     </header>
      <main>
 
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="text">
             <h1>Tic-Tac-Toe</h1>
             <p>Choose your game mode</p>
@@ -165,10 +195,168 @@
     </section>
 
     <section id="localGame" class="partner">
-        <h1 class="cmm">Coming Soon!!</h1>
+
+        <p id="textEror"  class="ers"><span id="errorMessage"></p>
+
+        <div class="users">
+
+        <div class="parentDiv">
+            <div class="playerDetails">
+                <h1>Player 1</h1>
+            <div class="playerHideInfo">
+                <input type="text" placeholder="choose a nickname" class="Plname" id="player_one">
+                <label for="">Select a Symbol</label>
+                <select name="" id="player1symbol" class="plSymb">
+                    <option value="X">X</option>
+                    <option value="O">O</option>
+                    <option value="🔥">🔥</option>
+                    <option value="❄️">❄️</option>                    
+                    <option value="🍆">🍆</option>
+                    <option value="🍑">🍑</option>
+                    <option value="👨">👨</option>
+                    <option value="👩‍🦰">👩‍🦰</option>    
+                    <option value="🎭">🎭</option>
+                    <option value="😎">😎</option>  
+                    <option value="🤣">🤣</option>  
+                    <option value="🙈">🙈</option>  
+                    <option value="💗">💗</option>  
+                    <option value="🤬">🤬</option>  
+                    <option value="🤡">🤡</option> 
+                    <option value="🥷">🥷</option> 
+                    <option value="🤭">🤭</option> 
+                    <option value="🤪">🤪</option> 
+                    <option value="👻">👻</option> 
+                     
+                </select>
+               </div> 
+
+                <div class="userInfoo">
+                    <p id="selectedName1" class="selectedName"></p>
+                    <p id="selectedSymbol1" class="selectedSymbo"></p>
+                </div>
+
+
+                <button class="setName setUser1" onclick="setPlayerDetails(this)">Set</button>
+
+               </div> 
+               
+        </div>
+
+            <h1 class="versus">VS</h1>
+
+<div class="parentDiv">
+            <div class="playerDetails">
+                <h1>Player 2</h1>
+            <div class="playerHideInfo">
+                <input type="text" placeholder="choose a nickname" class="Plname" id="player_two">
+                <label for="">Select a Symbol</label>
+                <select name="" id="player1symbo2" class="plSymb">
+                    <option value="O">O</option>
+                    <option value="X">X</option>
+                    <option value="🔥">🔥</option>
+                    <option value="❄️">❄️</option>                    
+                    <option value="🍆">🍆</option>
+                    <option value="🍑">🍑</option>
+                    <option value="👨">👨</option>
+                    <option value="👩‍🦰">👩‍🦰</option>    
+                    <option value="🎭">🎭</option>
+                    <option value="😎">😎</option>  
+                    <option value="🤣">🤣</option>  
+                    <option value="🙈">🙈</option>  
+                    <option value="💗">💗</option>  
+                    <option value="🤬">🤬</option>  
+                    <option value="🤡">🤡</option> 
+                    <option value="🥷">🥷</option> 
+                    <option value="🤭">🤭</option> 
+                    <option value="🤪">🤪</option> 
+                    <option value="👻">👻</option> 
+                      
+                </select>
+               </div> 
+
+                <div class="userInfoo">
+                    <p id="selectedName2" class="selectedName"></p>
+                    <p id="selectedSymbol2" class="selectedSymbo"></p>
+                </div>
+
+
+                <button class="setName setUser1" onclick="setPlayerDetails(this)">Set</button>
+
+               </div> 
+               
+        </div>
+            
+        </div>
+
+        <div class="buttonsTOacttion">
+            <button class="startLocalGame Lstart" onclick="localGameStart(this)">Start Match</button>
+            <button class="startLocalGame LReset" onclick="LocalGamereset()">Reset Game</button>
+
+        </div>
+
+
+
+        <div class="board_score">
+            <p class="playerTurn"></p>
+
+        <div class="withStart">
+
+          
+        <div class="playersBoard" id="multiplyayer">
+            <div class="dash bbod">
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+                <div class="pBox" onclick="twoPlayerGame(this)"></div>
+            </div>
+            <div class="dash scoreB">
+                <h1 class="light">Scoreboard</h1>
+                <span class="playFlex one1">
+                    <p id="player1Name">Name here</p>
+                    <p class="player1Score" id="player1Score">0</p>
+                </span>
+                    <span class="playFlex two2">
+                    <p id="player2Name">Name here</p>
+                    <p class="player1Score" id="player2Score">0</p>
+                </span>
+
+                <div class="ties">
+                    <h1>Draw</h1>
+                    <p id="numOfties">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="gamMeun">
+        <button class="resset" onclick="localMatchagain()">Play Again</button>
+        <button class="clearScore" onclick="resetScoreL()">Reset Score</button>
+        </div>
+
+        </div>  
+        </div>
+
+
+
+
     </section>
      </main>
 
+     <footer>
+        <div class="ftlinks">
+            <a href="https://www.linkedin.com/in/ridwan-nurudeen-110933359/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/Iamamgboye" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/amgboye-cloud" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.snapchat.com/add/amgboye?share_id=I8R5RT6IT2qQdyi5o66Fng&locale=en_US" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+            <a href="mailto:amgbpye@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+        <div class="devInfo">
+            <p>&COPY; 2026 Ridz Dev</p>
+        </div>
+     </footer>
     
 
 <script src="script.js"></script>
