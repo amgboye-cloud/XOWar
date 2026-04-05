@@ -178,7 +178,7 @@ function computerMove(){
 let boards = document.querySelectorAll('.box');
 let num ;
 
-if(checkSpace()){
+if(checkSpace() || mapMarks()){
     return -1;
 }
 else {
