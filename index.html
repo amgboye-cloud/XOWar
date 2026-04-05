@@ -119,6 +119,7 @@
         </div>
 
             <div class="userInfo">
+                <p id="inputErro"></p>
                 <input type="text" placeholder="choose a nickname" id="userName">
                 <button class="submit" onclick="chooseName(this)">Submit</button>
             </div>
@@ -127,14 +128,15 @@
 
             <h1>Who Plays First</h1>
             <div class="vdv">
-            <label for="coin" id="tcName">User (Me)</label>
+            <label for="coin">Heads or Tails</label>
             <select name="coin" id="coin">
-                <option value="Head">Head</option>
-                <option value="Tail">Tail</option>
+                <option value="Heads">Heads</option>
+                <option value="Tails">Tails</option>
             </select>
             </div>
 
-            <p id="result"></p>
+            <p class="resFlex"><span id="result"></span> <span id="Starter"></span></p>
+            <p ></p>
 
             <button class="tcoin" onclick="tossCoin()">Toss coin</button>
 
@@ -153,6 +155,7 @@
     <div class="container">
 
         <div class="dash-start">
+            <p id="gameErro">dd</p>
         <div class="dashboard">
             <div class="box" onclick="playGame(this)"></div>
             <div class="box" onclick="playGame(this)"></div>
@@ -166,7 +169,7 @@
         </div>
         
         <div class="actionss">
-        <button class="startGame" id="startGamee" onclick="startGame(this)">Start Game</button>
+        <button class="startGame" id="startGamee" onclick="startGame(this)">Activate Game</button>
         <button class="startGame again" onclick="resetGame()">Play Again</button>
         </div>
 

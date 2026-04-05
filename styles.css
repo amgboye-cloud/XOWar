@@ -376,11 +376,17 @@ main{
     border: 1px solid;
     font-family: poppins;
     font-weight: bold;
-    background-color: #0d83eb;
+    background-color: black;
     color: white;
     cursor: pointer;
     display: block;
     margin: 1rem auto;
+}
+.resetGame:active{
+    opacity: 0.5;
+}
+.startGame:active{
+    opacity: 0.5;
 }
 .scorebb{
     font-family: roboto;
@@ -820,15 +826,36 @@ align-items: center;
 
 
 
+.scoreStar{
+    margin-top: 2rem;
+}
 
 
 
 
+#inputErro,#gameErro{
+    font-family: poppins;
+    color: red;
+    padding: 1rem 0;
+}
+#gameErro{
+    text-align: center;
+}
 
+.resFlex{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
+#Starter{
+    font-weight: bold;
+}
+#result{
+    color: #118f00;
+        font-weight: bold;
 
-
-
+}
 
 
 

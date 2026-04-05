@@ -50,47 +50,68 @@ function chooseLevel(card){
     
 }
 
+let userActive = false;
+
 
 function chooseName(self){
 
     let name = document.getElementById('userName').value;
     let nameSheet = document.getElementById('player-name')
-    let nameCoin = document.getElementById('tcName')
     
+    if(name.trim() != ""){
     nameSheet.textContent = name;
-    nameCoin.textContent = name;
     self.textContent = "Submited!"
     self.classList.add('disabled')
     document.getElementById('userName').classList.add('disabled')
+    userActive = true;
+    document.getElementById('inputErro').textContent = ""
+    document.getElementById('gameErro').textContent = "";
+    localStorage.setItem("gameStarted",true);
 
     saveScore()
+    }
+    else{
+        document.getElementById('inputErro').textContent = "You can't submit an empty text!"
+    }
+
 }
 
 
 
+let coinToss = false;
 
 function tossCoin(){
     let userPick = document.getElementById('coin').value
     let text = document.getElementById('result')
+    let starter = document.getElementById('Starter')
     let num = Math.floor(Math.random() * 2) + 1;
     let result = "" ;
 
     text.textContent = "Tossing...."
     setTimeout(() => {
     if(num === 1){
-        text.textContent = "It's a Head";
-        result = "Head"
+        text.textContent = "It's Heads!!";
+        result = "Heads"
     }
     else{
-        text.textContent = "It's a Tail";
-        result = "Tail"
+        text.textContent = "It's Tails!!!";
+        result = "Tails"
     }
     if(result === userPick){
         userStarts = true;
+        starter.textContent = "You Start!!"
     }
     else{
         userStarts = false;
+        starter.textContent = "AI Starts!!"
+
     }
+    setTimeout(() => {
+            text.textContent = "";
+            starter.textContent = "";
+    },2000);
+    coinToss = true;
+    document.getElementById('gameErro').textContent = "";
 
     }, 1000)
 
@@ -98,8 +119,10 @@ function tossCoin(){
 
 }
 
+let gameStarted = false;
 
 function startGame(self){
+if(coinToss && userActive){
     is_aiVshuman = true;
     localStorage.setItem("comGameRunning", "true");
     localStorage.setItem("gameRunning", "false");
@@ -109,7 +132,19 @@ function startGame(self){
     }
 
     self.classList.add('disabled')
+    if(self.classList.contains('disabled')){
+        self.textContent = "Activated"
+    }
+    document.getElementById('gameErro').textContent = "";
+    gameStarted =  true;
+}
+else if(!userActive){
+    document.getElementById('gameErro').textContent = "You must enter a name";
 
+}
+else if(!coinToss){
+    document.getElementById('gameErro').textContent = "You must Toss coin!";
+}
 
 }
 
@@ -184,9 +219,7 @@ function playGame(box){
     let boards = document.querySelectorAll('.box');
 
 
-
-
-
+if(userActive && gameStarted && coinToss){
     if(playerMove(box)){
         computerMove();
  
@@ -197,9 +230,22 @@ function playGame(box){
         el.classList.remove('disabled')
         el.classList.add('disabled')
        })
-
+    document.getElementById('gameErro').textContent = "";
        saveScore()
     }
+}
+
+else if(!userActive){
+    document.getElementById('gameErro').textContent = "You must enter a name";
+}
+else if(!coinToss){
+    document.getElementById('gameErro').textContent = "You must Toss coin!";
+}
+else if(!gameStarted){
+    document.getElementById('gameErro').textContent = "You must activate game!";
+}
+
+
     //winning logics 
 
 
@@ -418,12 +464,17 @@ function resetGame(){
     resultText.classList.remove('show');
     resultText.textContent = "";
     document.getElementById('startGamee').classList.remove('disabled')
+        document.getElementById('startGamee').textContent = "Activate Game"
+
     boxes.forEach(el => {
         el.classList.remove('win');
         el.classList.remove('loss');
         el.classList.remove('disabled');
         el.textContent = "";
     })
+
+    coinToss = false;
+    gameStarted = false;
 
 }
 
@@ -441,7 +492,6 @@ function playerMove(self){
 
 function saveScore(){
     let nameSheet = document.getElementById('player-name').textContent;
-    let nameCoin = document.getElementById('tcName').textContent;
     let AI_score = document.getElementById('comScore').textContent
     let USER_score = document.getElementById('userScore').textContent
     let playNam = document.getElementById('player1Name').textContent;
@@ -449,12 +499,11 @@ function saveScore(){
     let player1Score = document.getElementById('player1Score').textContent
     let Player2Score = document.getElementById('player2Score').textContent
     let ties = document.getElementById('numOfties').textContent;
-    localStorage.setItem("scores",JSON.stringify([AI_score,USER_score,nameSheet,nameCoin,playNam,player2Nam,player1Score,Player2Score,ties]))
+    localStorage.setItem("scores",JSON.stringify([AI_score,USER_score,nameSheet,playNam,player2Nam,player1Score,Player2Score,ties]))
 }
 
 function loadScore(){
     let nameSheet = document.getElementById('player-name');
-    let nameCoin = document.getElementById('tcName');
     let AI_score = document.getElementById('comScore')
     let USER_score = document.getElementById('userScore')
     let data = JSON.parse(localStorage.getItem("scores"))
@@ -467,22 +516,28 @@ function loadScore(){
     AI_score.textContent = data[0]
     USER_score.textContent = data[1]
     nameSheet.textContent = data[2]
-    nameCoin.textContent = data[3]
-    playNam.textContent = data[4]
-    player2Nam.textContent = data[5]
-    player1Score.textContent = data[6]
-    Player2Score.textContent = data[7]
-    ties.textContent = data[8]
+    playNam.textContent = data[3]
+    player2Nam.textContent = data[4]
+    player1Score.textContent = data[5]
+    Player2Score.textContent = data[6]
+    ties.textContent = data[7]
 
     let state = localStorage.getItem("gameRunning");
     let comState = localStorage.getItem("comGameRunning");
 
     if(comState === "true"){
-        document.querySelector('.vsCOm').style.display = "block"
-        document.querySelector('.all').style.display = "none"
+        document.querySelector('.vsCOm').style.display = "block" 
+        document.querySelector('.flexbox').style.display = "none"
+        document.querySelector('.heeader').style.display = "none"
+        document.querySelector('.fl1').style.display = "none"
+        document.querySelector('.userInfo').style.display = "none"
 
     }
-
+    let gameEross = localStorage.getItem("gameStarted");
+    if(gameEross === "true"){
+        userActive = true;
+        document.querySelector('.whoStars').style.display = "flex"
+    }
 
 
 
