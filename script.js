@@ -10,7 +10,7 @@ let is_player2 = false;
 
 
 
-
+let is_aiVshuman = false;
 let is_gameRuning = false;
 
 document.addEventListener("DOMContentLoaded",loadScore);
@@ -100,11 +100,17 @@ function tossCoin(){
 
 
 function startGame(self){
+    is_aiVshuman = true;
+    localStorage.setItem("comGameRunning", "true");
+    localStorage.setItem("gameRunning", "false");
+
     if(!userStarts){
     computerMove()
     }
 
     self.classList.add('disabled')
+
+
 }
 
 
@@ -468,16 +474,29 @@ function loadScore(){
     Player2Score.textContent = data[7]
     ties.textContent = data[8]
 
-    let state = localStorage.getItem("gameRunning")
+    let state = localStorage.getItem("gameRunning");
+    let comState = localStorage.getItem("comGameRunning");
+
+    if(comState === "true"){
+        document.querySelector('.vsCOm').style.display = "block"
+        document.querySelector('.all').style.display = "none"
+
+    }
+
+
+
 
     if(state === "true"){
     document.querySelector('.buttonsTOacttion').style.display = "block";
-    document.querySelector('.userInfoo').style.display = "block";
+   //document.querySelector('.userInfoo').style.display = "block";
+    document.querySelector('.partner').style.display = "block";
 
     let boxess = document.querySelectorAll('.playerHideInfo');
     boxess.forEach(box =>{
         box.style.display = "none"
     })
+
+
 
     let userDetails = JSON.parse(localStorage.getItem("User-info"))
     let player1 = document.getElementById('selectedName1')
@@ -495,6 +514,7 @@ function loadScore(){
     el.style.display = "none";
    })
     }
+
 }
 
 function resetScores(){
@@ -502,6 +522,8 @@ function resetScores(){
     document.getElementById('userScore').textContent = "0"
     document.getElementById('startGamee').classList.remove('disabled')
     saveScore()
+    localStorage.setItem("comGameRunning", "false");
+
 }
 
 function activeLink(current){
@@ -574,6 +596,7 @@ if(playerName.trim() != ""){
     let playSymb = document.getElementById('selectedSymbol1').textContent;
     let play2Symb = document.getElementById('selectedSymbol2').textContent;
     localStorage.setItem("gameRunning", "true");
+    localStorage.setItem("comGameRunning", "false");
     localStorage.setItem("User-info",JSON.stringify([player1,player2,playSymb,play2Symb]))
 
 }
