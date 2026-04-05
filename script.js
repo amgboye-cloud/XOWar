@@ -586,7 +586,8 @@ function loadScore(){
     }
     if(reseT_is === "true"){
         document.querySelector('.userInfo').style.display = "block"
-
+        document.querySelector('.fl1').style.display = "flex"
+        document.querySelector('.flexbox').style.display = "flex"
     }
 }
 
@@ -1145,6 +1146,9 @@ function newGame(){
     document.getElementById('drawScore').textContent = 0;
 
     document.querySelector('.userInfo').style.display = "block"
+    document.querySelector('.fl1').style.display = "flex"
+    document.querySelector('.flexbox').style.display = "flex"
+    
     localStorage.setItem("reset","true")
     document.getElementById('player-name').textContent ="Guest";
     localStorage.setItem("gameStarted","false");
