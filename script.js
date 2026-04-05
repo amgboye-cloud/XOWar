@@ -66,7 +66,7 @@ function chooseName(self){
     userActive = true;
     document.getElementById('inputErro').textContent = ""
     document.getElementById('gameErro').textContent = "";
-    localStorage.setItem("gameStarted",true);
+    localStorage.setItem("gameStarted","true");
 
     saveScore()
     }
@@ -137,6 +137,8 @@ if(coinToss && userActive){
     }
     document.getElementById('gameErro').textContent = "";
     gameStarted =  true;
+    localStorage.setItem("reset","false")
+
 }
 else if(!userActive){
     document.getElementById('gameErro').textContent = "You must enter a name";
@@ -231,8 +233,10 @@ if(userActive && gameStarted && coinToss){
         el.classList.add('disabled')
        })
     document.getElementById('gameErro').textContent = "";
-       saveScore()
     }
+
+           saveScore()
+
 }
 
 else if(!userActive){
@@ -450,6 +454,9 @@ function mapMarks(){
                 resultText.textContent = "It's a Tie"
                 resultText.style.color = "black"
                 resultText.classList.add('show')
+                let tieNum = document.querySelector('.drawScore');
+                let z = Number(tieNum.textContent);
+                tieNum.textContent = z + 1;
     }
 
 
@@ -498,16 +505,18 @@ function saveScore(){
     let player2Nam = document.getElementById('player2Name').textContent;
     let player1Score = document.getElementById('player1Score').textContent
     let Player2Score = document.getElementById('player2Score').textContent
+    let drawScore = document.getElementById('drawScore').textContent;
     let ties = document.getElementById('numOfties').textContent;
-    localStorage.setItem("scores",JSON.stringify([AI_score,USER_score,nameSheet,playNam,player2Nam,player1Score,Player2Score,ties]))
+    localStorage.setItem("scores",JSON.stringify([AI_score,USER_score,nameSheet,playNam,player2Nam,player1Score,Player2Score,ties,drawScore]))
 }
 
 function loadScore(){
     let nameSheet = document.getElementById('player-name');
     let AI_score = document.getElementById('comScore')
     let USER_score = document.getElementById('userScore')
-    let data = JSON.parse(localStorage.getItem("scores"))
+    let data = JSON.parse(localStorage.getItem("scores"));
     let ties = document.getElementById('numOfties');
+    let drawScore = document.getElementById('drawScore');
 
     let playNam = document.getElementById('player1Name');
     let player2Nam = document.getElementById('player2Name');
@@ -521,9 +530,15 @@ function loadScore(){
     player1Score.textContent = data[5]
     Player2Score.textContent = data[6]
     ties.textContent = data[7]
+    drawScore.textContent = data[8]
 
+
+    let reseT_is = localStorage.getItem("reset");
     let state = localStorage.getItem("gameRunning");
     let comState = localStorage.getItem("comGameRunning");
+
+
+
 
     if(comState === "true"){
         document.querySelector('.vsCOm').style.display = "block" 
@@ -569,12 +584,16 @@ function loadScore(){
     el.style.display = "none";
    })
     }
+    if(reseT_is === "true"){
+        document.querySelector('.userInfo').style.display = "block"
 
+    }
 }
 
 function resetScores(){
     document.getElementById('comScore').textContent  = "0"
     document.getElementById('userScore').textContent = "0"
+    document.getElementById('drawScore').textContent = "0"
     document.getElementById('startGamee').classList.remove('disabled')
     saveScore()
     localStorage.setItem("comGameRunning", "false");
@@ -1105,4 +1124,34 @@ function closeMenu(){
     menu.style.display = "none"
     bar.style.display = "flex"
 
+}
+
+
+function newGame(){
+    let box = document.querySelectorAll('.box');
+    box.forEach(bx =>{
+        bx.textContent = "";
+        bx.classList.remove('win')
+        bx.classList.remove('lose')
+        bx.classList.remove('diasbled')
+    })
+
+    let scores = document.querySelectorAll('.score');
+    scores.forEach(Score => {
+        Score.textContent = 0;
+
+    })
+
+    document.getElementById('drawScore').textContent = 0;
+
+    document.querySelector('.userInfo').style.display = "block"
+    localStorage.setItem("reset","true")
+    document.getElementById('player-name').textContent ="Guest";
+    localStorage.setItem("gameStarted","false");
+
+    userActive = false;
+    coinToss = false;
+    gameStarted = false;
+
+    saveScore();
 }

@@ -155,7 +155,7 @@
     <div class="container">
 
         <div class="dash-start">
-            <p id="gameErro">dd</p>
+            <p id="gameErro"></p>
         <div class="dashboard">
             <div class="box" onclick="playGame(this)"></div>
             <div class="box" onclick="playGame(this)"></div>
@@ -188,8 +188,17 @@
                     <p class="score" id="comScore">0</p>
                 </div>
 
+                <div class="drwBoard">
+                    <p class="drahead">Draw</p>
+                    <p class="drawScore" id="drawScore">0</p>
+                </div>
+
             </div>
+            <div class="btnflexx">
+            <button class="resetGame newGame" onclick="newGame()"> Start New Game</button>
             <button class="resetGame" onclick="resetScores()"><i class="fa-solid fa-rotate-right"></i> Reset Score</button>
+            </div>
+
         </div>
 
 
