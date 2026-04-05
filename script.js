@@ -1075,6 +1075,7 @@ function localMatchagain(){
   //  let resultText = document.querySelector('.final_result')
    // resultText.classList.remove('show');
    // resultText.textContent = "";
+   document.querySelector('.playerTurn').style.color = "black";
     document.getElementById('startGamee').classList.remove('disabled')
     if(checkusers()){
     removeboxClass()
