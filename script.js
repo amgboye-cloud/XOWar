@@ -80,7 +80,40 @@ function chooseName(self){
 
 let coinToss = false;
 
+function flipCoin() {
+    const coin = document.getElementById('coinF')
+    coin.classList.remove('flip');
+    void coin.offsetWidth;
+    coin.classList.add('flip');
+    document.getElementById('coinRes').textContent = "T"
+
+    setTimeout(()=>{
+       // coin.style.transform = isHeads
+       // ? "rotateY(0deg)"
+       // : "rotateY(180deg)"
+
+    }, 1000);
+
+
+}
+
+
+
+
+
+
+
 function tossCoin(){
+    const coin = document.getElementById('coinF')
+    coin.classList.remove('flip');
+    void coin.offsetWidth;
+    coin.classList.add('flip');
+    let CoinResult = document.getElementById('coinRes');
+    CoinResult.textContent = "T";
+
+
+
+
     let userPick = document.getElementById('coin').value
     let text = document.getElementById('result')
     let starter = document.getElementById('Starter')
@@ -90,22 +123,22 @@ function tossCoin(){
     text.textContent = "Tossing...."
     setTimeout(() => {
     if(num === 1){
-        text.textContent = "It's Heads!!";
+        CoinResult.textContent = "H"
         result = "Heads"
     }
     else{
-        text.textContent = "It's Tails!!!";
+        CoinResult.textContent = "T"
         result = "Tails"
     }
     if(result === userPick){
         userStarts = true;
-        starter.textContent = "You Start!!"
+        text.textContent = "You Start!!"
     }
     else{
         userStarts = false;
-        starter.textContent = "AI Starts!!"
-
+        text.textContent = "AI Starts!!"
     }
+    
     setTimeout(() => {
             text.textContent = "";
             starter.textContent = "";

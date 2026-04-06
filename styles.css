@@ -883,6 +883,62 @@ align-items: center;
 }
 
 
+/** coin*/
+
+
+
+.coin{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #D3D3D3;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.446);
+    background-color: silver;
+    transform-style: preserve-3d;
+}
+
+.side{
+    font-family: roboto;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    backface-visibility: hidden;
+}
+
+.heads{
+    transform: rotateY(0deg);
+}
+.tails{
+        transform: rotateY(180deg);
+
+}
+.coin.flip{
+    animation: toss 1.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+@keyframes toss {
+    0% {
+                transform: rotateX(0deg);
+
+    }
+    100%{
+        transform: rotateX(3600deg);
+    }
+    
+}
+
+
+
+
+.red{
+    color: red;
+}
 
 
 @media(max-width: 767px){
