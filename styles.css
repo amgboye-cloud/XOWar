@@ -358,16 +358,7 @@ main{
     border-left: 0.4rem solid orangered;
     background-color: #ECEEF0;
 }
-.win{
-    background-color: green;
-    color: white;
-    border: none;
-}
-.loss{
-    background-color: red;
-    color: white;
-    border: none;
-}
+
 
 .resetGame{
     width: 150px;
@@ -714,6 +705,23 @@ main{
     color: white;
     opacity: 1;
 }
+.win{
+    background-color: green;
+    color: white;
+    border: none;
+    opacity: 1;
+
+}
+.loss{
+    background-color: red;
+    color: white;
+    border: none;
+    opacity: 1;
+
+}
+
+
+
 
 .one1{
     border-color: #0d83eb;
