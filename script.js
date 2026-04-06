@@ -120,7 +120,6 @@ function tossCoin(){
     let num = Math.floor(Math.random() * 2) + 1;
     let result = "" ;
 
-    text.textContent = "Tossing...."
     setTimeout(() => {
     if(num === 1){
         CoinResult.textContent = "H"
