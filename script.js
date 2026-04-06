@@ -109,7 +109,7 @@ function tossCoin(){
     void coin.offsetWidth;
     coin.classList.add('flip');
     let CoinResult = document.getElementById('coinRes');
-    CoinResult.textContent = "T";
+    CoinResult.textContent = "H";
 
 
 
