@@ -1163,6 +1163,8 @@ function closeMenu(){
 
 function newGame(){
     let box = document.querySelectorAll('.box');
+
+
     box.forEach(bx =>{
         bx.textContent = "";
         bx.classList.remove('win')
@@ -1176,8 +1178,17 @@ function newGame(){
 
     })
 
-    document.getElementById('drawScore').textContent = 0;
+        document.querySelector('.final_result').textContent = "";
 
+
+
+
+
+    document.getElementById('drawScore').textContent = 0;
+    document.getElementById('userName').classList.remove('disabled')
+    document.getElementById('subBtn').classList.remove('disabled')
+    document.getElementById('subBtn').textContent = "Submit"
+    document.getElementById('userName').value = ""
     document.querySelector('.userInfo').style.display = "block"
     document.querySelector('.fl1').style.display = "flex"
     document.querySelector('.flexbox').style.display = "flex"
@@ -1189,6 +1200,8 @@ function newGame(){
     userActive = false;
     coinToss = false;
     gameStarted = false;
+    let comState = localStorage.setItem("comGameRunning", "false");
 
+    resetGame()
     saveScore();
 }
