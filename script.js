@@ -140,7 +140,6 @@ function tossCoin(){
     
     setTimeout(() => {
             text.textContent = "";
-            starter.textContent = "";
     },2000);
     coinToss = true;
     document.getElementById('gameErro').textContent = "";
