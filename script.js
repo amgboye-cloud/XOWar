@@ -272,18 +272,7 @@ if(userActive && gameStarted && coinToss){
        boards.forEach(el => {
         el.classList.remove('disabled')
         el.classList.add('disabled')
-                background_sound.pause()
-
-        let winnerId = document.querySelector('.final_result');
-
-            if(winnerId.textContent === "You Won!!!"){
-                let UserWin = new Audio("WON.mp3");
-                UserWin.play()
-                UserWin.volume = 0.1;
-            }
-            else{
-                gameOverSound.play()
-            }
+        background_sound.pause()
        })
     document.getElementById('gameErro').textContent = "";
     }
@@ -317,6 +306,8 @@ function mapMarks(){
     let x = Number(comScore.textContent);
     let y = Number(userScore.textContent);
     let resultText =  document.querySelector('.final_result')
+    let UserWin = new Audio("WON.mp3");
+    UserWin.volume = 0.1;
 
 
     if((boards[0].textContent.trim() !== "") && (boards[0].textContent === boards[1].textContent) && (boards[1].textContent === boards[2].textContent)){
@@ -360,6 +351,8 @@ function mapMarks(){
                 resultText.textContent = "You Won!!!"
                 resultText.classList.add('show')
                 resultText.style.color = "green"
+                                UserWin.play()
+
 
             }
             gameover = true;
@@ -383,6 +376,8 @@ function mapMarks(){
                 resultText.textContent = "You Won!!!"
                 resultText.classList.add('show')
                 resultText.style.color = "green"
+                                UserWin.play()
+
             }
             gameover = true;
             winner = true;
@@ -405,6 +400,8 @@ function mapMarks(){
                 resultText.textContent = "You Won!!!"
                 resultText.classList.add('show')
                 resultText.style.color = "green"
+                                UserWin.play()
+
             }
             gameover = true;
             winner = true;
@@ -427,6 +424,8 @@ function mapMarks(){
                 resultText.textContent = "You Won!!!"
                 resultText.classList.add('show')
                 resultText.style.color = "green"
+                                UserWin.play()
+
 
             }
             gameover = true;
@@ -450,6 +449,8 @@ function mapMarks(){
                 resultText.textContent = "You Won!!!"
                 resultText.classList.add('show')
                 resultText.style.color = "green"
+                                UserWin.play()
+
 
             }
             gameover = true;
@@ -472,6 +473,8 @@ function mapMarks(){
                 userScore.textContent = y + 1;
                 resultText.textContent = "You Won!!!"
                 resultText.style.color = "green"
+                UserWin.play()
+
 
                 resultText.classList.add('show')
             }
@@ -496,6 +499,8 @@ function mapMarks(){
                 resultText.textContent = "You Won!!!"
                 resultText.style.color = "green"
                 resultText.classList.add('show')
+                UserWin.play()
+
             }
             gameover = true;
             winner = true;
