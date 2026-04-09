@@ -272,8 +272,18 @@ if(userActive && gameStarted && coinToss){
        boards.forEach(el => {
         el.classList.remove('disabled')
         el.classList.add('disabled')
-                gameOverSound.play()
                 background_sound.pause()
+
+        let winnerId = document.querySelector('.final_result');
+
+            if(winnerId.textContent === "You Won!!!"){
+                let UserWin = new Audio("WON.mp3");
+                UserWin.play()
+                UserWin.volume = 0.1;
+            }
+            else{
+                gameOverSound.play()
+            }
        })
     document.getElementById('gameErro').textContent = "";
     }
@@ -785,7 +795,7 @@ function localGameStart(self){
 }
 
 function LocalGamereset(){
-
+            localSound.pause()
     let names = document.querySelectorAll('.Plname');
     names.forEach(name => {
         name.value = ""
@@ -892,7 +902,6 @@ function playerTurn(){
 }
 
 let Pmove = new Audio("mover.mp3");
-//Pmove.volume = 0.6;
 function makeAmove(box){
     let play1Sym = document.getElementById('selectedSymbol1').textContent;
     let play2Sym = document.getElementById('selectedSymbol2').textContent;
