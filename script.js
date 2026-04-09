@@ -319,6 +319,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[0].classList.add('win')
@@ -342,6 +344,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[3].classList.add('win')
@@ -367,6 +371,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[6].classList.add('win')
@@ -391,6 +397,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[0].classList.add('win')
@@ -415,6 +423,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[2].classList.add('win')
@@ -440,6 +450,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[0].classList.add('win')
@@ -465,6 +477,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[1].classList.add('win')
@@ -490,6 +504,8 @@ function mapMarks(){
                 resultText.textContent = "You lost"
                 resultText.style.color = "red"
                 resultText.classList.add('show')
+                            gameOverSound.play()
+
             }
             else{
                 boards[2].classList.add('win')
