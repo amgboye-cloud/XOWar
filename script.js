@@ -152,6 +152,11 @@ function tossCoin(){
 
 let gameStarted = false;
 
+let background_sound = new Audio("background2.mp3");
+background_sound.loop = true;
+background_sound.volume = 0.3;
+
+
 function startGame(self){
 if(coinToss && userActive){
     is_aiVshuman = true;
@@ -170,6 +175,8 @@ if(coinToss && userActive){
     gameStarted =  true;
     localStorage.setItem("reset","false")
 
+    background_sound.play()
+
 }
 else if(!userActive){
     document.getElementById('gameErro').textContent = "You must enter a name";
@@ -178,6 +185,7 @@ else if(!userActive){
 else if(!coinToss){
     document.getElementById('gameErro').textContent = "You must Toss coin!";
 }
+
 
 }
 
@@ -247,6 +255,8 @@ function checkLSpace(){
     }
 }
 
+let gameOverSound = new Audio("over.mp3")
+
 
 function playGame(box){
     let boards = document.querySelectorAll('.box');
@@ -255,13 +265,15 @@ function playGame(box){
 if(userActive && gameStarted && coinToss){
     if(playerMove(box)){
         computerMove();
- 
+        
     }
 
     if(mapMarks()){
        boards.forEach(el => {
         el.classList.remove('disabled')
         el.classList.add('disabled')
+                gameOverSound.play()
+                background_sound.pause()
        })
     document.getElementById('gameErro').textContent = "";
     }
@@ -731,7 +743,9 @@ function checkusers(){
 
 
 
-
+let localSound = new Audio("background.mp3");
+localSound.loop = true;
+localSound.volume = 0.4;
 
 function localGameStart(self){
     let displayName1 = document.getElementById('player1Name');
@@ -757,6 +771,7 @@ function localGameStart(self){
     document.getElementById('textEror').style.display = "none";
     ///random
 
+    localSound.play()
     }  
 
 
@@ -845,6 +860,9 @@ if(checkusers()){
        board.forEach(el => {
         el.classList.remove('disabled')
         el.classList.add('disabled')
+
+            gameOverSound.play()
+            localSound.pause()
        })
 
     }
@@ -873,7 +891,8 @@ function playerTurn(){
     }
 }
 
-
+let Pmove = new Audio("mover.mp3");
+//Pmove.volume = 0.6;
 function makeAmove(box){
     let play1Sym = document.getElementById('selectedSymbol1').textContent;
     let play2Sym = document.getElementById('selectedSymbol2').textContent;
@@ -892,6 +911,10 @@ function makeAmove(box){
         }
 
         box.classList.add('disabled')
+
+        Pmove.currentTime = 0;
+        Pmove.play()
+
     }
 
 
@@ -1112,6 +1135,9 @@ function localMatchagain(){
     removeboxClass()
     checkWhostarts();
     playerTurn();
+        localSound.currentTime = 0;
+        localSound.play()
+
     }
 
     else{
