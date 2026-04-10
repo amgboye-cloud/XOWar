@@ -270,12 +270,19 @@ if(userActive && gameStarted && coinToss){
 
     if(mapMarks()){
        boards.forEach(el => {
-        el.classList.remove('disabled')
         el.classList.add('disabled')
-        background_sound.pause()
        })
+
+
     document.getElementById('gameErro').textContent = "";
     }
+
+       if(gameover){
+       background_sound.pause()
+
+       }
+    
+
 
            saveScore()
 
@@ -297,6 +304,7 @@ else if(!gameStarted){
 
 }
 
+let gameover = false;
 
 function mapMarks(){
     let boards = document.querySelectorAll('.box');
@@ -308,6 +316,15 @@ function mapMarks(){
     let resultText =  document.querySelector('.final_result')
     let UserWin = new Audio("WON.mp3");
     UserWin.volume = 0.1;
+
+
+    if (gameover){
+        return
+    }
+
+  else{
+
+
 
 
     if((boards[0].textContent.trim() !== "") && (boards[0].textContent === boards[1].textContent) && (boards[1].textContent === boards[2].textContent)){
@@ -524,16 +541,18 @@ function mapMarks(){
     }
 
     
-    else if(checkSpace() && !winner){
+if(checkSpace() && !winner){
                 resultText.textContent = "It's a Tie"
                 resultText.style.color = "black"
                 resultText.classList.add('show')
                 let tieNum = document.querySelector('.drawScore');
                 let z = Number(tieNum.textContent);
                 tieNum.textContent = z + 1;
+                gameover = true;
+
     }
 
-
+  }
 
  return winner;
 }
@@ -556,6 +575,8 @@ function resetGame(){
 
     coinToss = false;
     gameStarted = false;
+
+    gameover = false;
 
 }
 
@@ -1251,7 +1272,7 @@ function newGame(){
     localStorage.setItem("reset","true")
     document.getElementById('player-name').textContent ="Guest";
     localStorage.setItem("gameStarted","false");
-
+    gameover = false;
     userActive = false;
     coinToss = false;
     gameStarted = false;
