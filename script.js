@@ -268,18 +268,15 @@ if(userActive && gameStarted && coinToss){
         
     }
 
-    if(mapMarks()){
-       boards.forEach(el => {
-        el.classList.add('disabled')
-       })
-
-
+  if(mapMarks()){
     document.getElementById('gameErro').textContent = "";
-    }
+    } 
 
        if(gameover){
        background_sound.pause()
-
+       boards.forEach(el => {
+        el.classList.add('disabled')
+       })
        }
     
 
@@ -584,6 +581,9 @@ function playerMove(self){
     if(self.textContent.trim() !== ""){
         return false
     }
+   /* else if(gameover){
+        return false;
+    } */
     else{
         self.textContent = "X";
         self.classList.add('disabled')
